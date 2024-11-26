@@ -2,6 +2,8 @@ import React from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { Separator } from "@/components/ui/separator";
+import Socials from "./show-socials";
 
 const LoginForm = () => {
   return (
@@ -20,6 +22,14 @@ const LoginForm = () => {
           <Input id="password" type="password" />
         </div>
         <Button className="w-full">Login</Button>
+
+        <div className="flex items-center gap-4">
+          <Separator className="flex-1" />
+          <span className="text-gray-400">or</span>
+          <Separator className="flex-1" />
+        </div>
+
+        <Socials />
       </form>
     </div>
   );

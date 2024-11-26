@@ -1,8 +1,9 @@
 "use server";
-import { supabase } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
 export const signInWithGithub = async () => {
+  const supabase = createClient();
   const { data, error } = await (
     await supabase
   ).auth.signInWithOAuth({
@@ -18,5 +19,6 @@ export const signInWithGithub = async () => {
 };
 
 export const signOut = async () => {
+  const supabase = createClient();
   const { error } = await (await supabase).auth.signOut();
 };
