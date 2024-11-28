@@ -1,17 +1,14 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { IoMdPerson } from "react-icons/io";
 
-const AvatarHeader = ({
-  avatar,
-  fallback,
-}: {
-  avatar: string;
-  fallback: string;
-}) => {
+const AvatarHeader = ({ src }: { src: string | undefined }) => {
   return (
     <Avatar>
-      <AvatarImage src={avatar} />
-      <AvatarFallback>{fallback}</AvatarFallback>
+      <AvatarImage src={src} />
+      <AvatarFallback>
+        <IoMdPerson />
+      </AvatarFallback>
     </Avatar>
   );
 };

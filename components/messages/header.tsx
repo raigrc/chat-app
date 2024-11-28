@@ -11,26 +11,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "@/actions/authentication";
+import { User } from "@supabase/supabase-js";
 
-const ChatHeader = ({
-  avatar,
-  fallback,
-  email,
-}: {
-  avatar: string;
-  fallback: string;
-  email: string | undefined;
-}) => {
+const ChatHeader = ({ user }: { user: User | null }) => {
   return (
-    <div className="flex h-16 w-full items-center justify-between border-b-2 px-4">
+    <div className="flex min-h-16 w-full items-center justify-between border-b-2 px-4">
       <h1>Logo Ipsum</h1>
 
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <AvatarHeader avatar={avatar} fallback={fallback} />
+          <AvatarHeader src={user?.user_metadata.avatar_url} />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuLabel>{email}</DropdownMenuLabel>
+          <DropdownMenuLabel>{user?.email}</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={signOut}>Sign out</DropdownMenuItem>
         </DropdownMenuContent>

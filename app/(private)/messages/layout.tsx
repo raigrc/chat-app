@@ -1,28 +1,31 @@
 import React from "react";
 import ChatHeader from "@/components/messages/header";
 import { createClient } from "@/lib/supabase/server";
+import InitUser from "@/lib/store/initUser";
 
 const MessagesLayout = async ({
-  chat_head,
+  chats,
+  conversation,
 }: {
-  chat_head: React.ReactNode;
+  chats: React.ReactNode;
+  conversation: React.ReactNode;
 }) => {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
+  console.log(user);
+
   return (
-    <>
-      <ChatHeader
-        avatar={user?.user_metadata.avatar_url}
-        fallback={user?.user_metadata.user_name}
-        email={user?.email}
-      />
-      <div className="flex w-full items-center justify-between">
-        {chat_head}
+    <div className="flex h-screen w-full flex-col">
+      <InitUser user={user} />
+      <ChatHeader user={user} />
+      <div className="flex h-full overflow-hidden">
+        <div className="w-1/5 border-r-2">{chats}</div>
+        <div className="w-4/5">{conversation}</div>
       </div>
-    </>
+    </div>
   );
 };
 
