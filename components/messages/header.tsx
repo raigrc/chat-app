@@ -1,20 +1,39 @@
+"use client";
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import AvatarHeader from "./avatar-header";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const ChatHeader = ({
   avatar,
   fallback,
+  email,
 }: {
   avatar: string;
   fallback: string;
+  email: string | undefined;
 }) => {
   return (
     <div className="flex h-16 w-full items-center justify-between border-b-2 px-4">
       <h1>Logo Ipsum</h1>
-      <Avatar>
-        <AvatarImage src={avatar} />
-        <AvatarFallback>{fallback}</AvatarFallback>
-      </Avatar>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <AvatarHeader avatar={avatar} fallback={fallback} />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuLabel>{email}</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>Sign out</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 };
