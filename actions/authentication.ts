@@ -3,13 +3,11 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
 export const signInWithGithub = async () => {
-  const supabase = createClient();
-  const { data, error } = await (
-    await supabase
-  ).auth.signInWithOAuth({
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "github",
     options: {
-      redirectTo: " http://localhost:3000/auth/callback",
+      redirectTo: "http://localhost:3000/auth/callback",
     },
   });
 

@@ -6,15 +6,11 @@ import { signInWithGithub } from "@/actions/authentication";
 const Socials = () => {
   return (
     <div className="flex items-center gap-4">
-      <Button
-        className="w-full"
-        variant="outline"
-        formAction={signInWithGithub}
-      >
+      <Button className="w-full" variant="outline" onClick={signInWithGithub}>
         <FaGithub />
         GitHub
       </Button>
-      <Button className="w-full" variant="secondary">
+      <Button className="w-full" variant="outline">
         <FcGoogle />
         Google
       </Button>

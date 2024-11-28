@@ -3,7 +3,7 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Separator } from "@/components/ui/separator";
-import Socials from "./show-socials";
+import Socials from "./socials";
 
 const LoginForm = () => {
   return (
@@ -25,7 +25,7 @@ const LoginForm = () => {
 
         <div className="flex items-center gap-4">
           <Separator className="flex-1" />
-          <span className="text-gray-400">or</span>
+          <span className="text-gray-400">or login with</span>
           <Separator className="flex-1" />
         </div>
 
