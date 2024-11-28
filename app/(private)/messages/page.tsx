@@ -17,7 +17,10 @@ const MessagePage = async () => {
 
   return (
     <div>
-      <ChatHeader />
+      <ChatHeader
+        avatar={user?.user_metadata.avatar_url}
+        fallback={user?.user_metadata.user_name}
+      />
       {user?.user_metadata.user_name}
     </div>
   );
