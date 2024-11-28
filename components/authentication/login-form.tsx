@@ -25,7 +25,7 @@ const LoginForm = () => {
 
         <div className="flex items-center gap-4">
           <Separator className="flex-1" />
-          <span className="text-gray-400">or login with</span>
+          <span className="text-gray-400 text-xs">or login with</span>
           <Separator className="flex-1" />
         </div>
 

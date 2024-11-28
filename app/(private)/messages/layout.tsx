@@ -10,10 +10,7 @@ const MessagesLayout = async ({
   const supabase = await createClient();
   const {
     data: { user },
-    error,
   } = await supabase.auth.getUser();
-
-  if (error) throw new Error("User not found", error);
 
   return (
     <>

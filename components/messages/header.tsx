@@ -10,6 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { signOut } from "@/actions/authentication";
 
 const ChatHeader = ({
   avatar,
@@ -31,7 +32,7 @@ const ChatHeader = ({
         <DropdownMenuContent>
           <DropdownMenuLabel>{email}</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Sign out</DropdownMenuItem>
+          <DropdownMenuItem onClick={signOut}>Sign out</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
