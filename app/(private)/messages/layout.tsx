@@ -15,6 +15,7 @@ const MessagesLayout = async ({
     data: { user },
   } = await supabase.auth.getUser();
 
+
   console.log(user);
 
   return (
